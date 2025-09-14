@@ -1,0 +1,46 @@
+services:
+  next-app:
+    container_name: next-app
+    build:
+      context: ./ui/next-app
+      dockerfile: dev.Dockerfile
+    environment:
+      ENV_VARIABLE: ${ENV_VARIABLE}
+      NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+    env_file:
+      - .env
+    volumes:
+      - ./ui/next-app/src:/app/src
+      - ./ui/next-app/public:/app/public
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - warehouse_network
+
+  db:
+    image: mariadb:latest
+    command: '--default-authentication-plugin=mysql_native_password'
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 3s
+      retries: 5
+      start_period: 30s
+    env_file:
+      - .env
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backnet
+    ports:   
+      - "3306:3306"
+
+volumes:
+  db-data:
+
+networks:
+  warehouse_network:
+    external: true
+  backnet:
+    driver: bridge

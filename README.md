@@ -24,6 +24,8 @@ Desarrollada con **Next.js**, **React**, **TypeScript** y **Tailwind CSS**.
 - [React](https://react.dev/) - Librería de UI.  
 - [TypeScript](https://www.typescriptlang.org/) - Tipado estático.  
 - [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utilitario.  
+- [MariaDB](https://mariadb.org/) - Base de datos relacional.
+- [Clerk](https://clerk.com/) - Librería para la gestión de usuarios
 
 ---
 
