@@ -7,7 +7,15 @@ import { IoCart } from "react-icons/io5";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { FaHeart } from "react-icons/fa";
+import { FaGithub, FaHeart } from "react-icons/fa";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -27,14 +35,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col items-center justify-start align-top h-lvh w-full min-w-xs">
+      <main className="flex flex-col items-center justify-start align-top min-h-lvh w-full min-w-xs ">
         
         
         <CustomNavbar></CustomNavbar>
         <HomeWhFilter></HomeWhFilter>
         <HomeAllItems></HomeAllItems>
       </main>
-      
+      <CustomFooter></CustomFooter>
       
     </div>
   );
@@ -87,7 +95,7 @@ export default function Home() {
         </section>
         
       </CardContent>
-      <Button className="w-30 m-auto mt-0">+</Button>
+      <Button className="w-30 m-auto mt-3">+</Button>
       
     </Card>
   )
@@ -137,19 +145,30 @@ export default function Home() {
       
       <CardContent className="flex flex-row w-full justify-between ">
         <h1 className="font-bold text-2xl"><span>W</span><span>house</span></h1>
-        <div className="flex flex-row w-full justify-end gap-4">
+        <div className="flex flex-row w-full justify-end gap-6">
           <Avatar>
-            <AvatarImage src="" />
-            <AvatarFallback ><FaHeart className="h-full w-full m-1.5"/></AvatarFallback>
-          </Avatar>
-          <Avatar>
-            <AvatarImage src="" />
-            <AvatarFallback ><IoCart className="h-full w-full m-1"/></AvatarFallback>
-          </Avatar>
-          <Avatar>
+                <AvatarImage src="" />
+                <AvatarFallback ><FaHeart className="h-full w-full m-1.5"/></AvatarFallback>
+              </Avatar>
+          <DropdownMenu>
+            <DropdownMenuTrigger >
+              <Avatar>
             <AvatarImage src="https://github.com/jlopep09.png" />
             <AvatarFallback>Account</AvatarFallback>
           </Avatar>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>jlopep09</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Log out</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          
+          <Avatar className="hidden">
+            <AvatarImage src="" />
+            <AvatarFallback ><IoCart className="h-full w-full m-1"/></AvatarFallback>
+          </Avatar>
+          
         </div>
       </CardContent>
       
@@ -161,17 +180,29 @@ export default function Home() {
  const CustomFooter = () => {
   return (
     <footer className={styles.footer }>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
+            
+            className="min-w-11/12"
             
           >
-            Powered by{" "}
-            <span className={styles.logo}>
-              <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-            </span>
-          </a>
+            <div className="flex flex-row justify-between min-w-11/12">
+              <p className="w-1/3"></p>
+              <a
+                href="https://github.com/jlopep09/WarehouseApp"
+                target="_blank"
+                
+                
+              ><FaGithub className="w-6 h-6 opacity-70"></FaGithub></a>
+              <a
+                href="https://joselp.com/"
+                target="_blank"
+                className="w-1/3"
+                
+              ><p className="w-1/3 text-end text-neutral-500">José Antonio López Pérez </p></a>
+              
+            </div>
+            
+          </div>
         </footer>
   )
 }
