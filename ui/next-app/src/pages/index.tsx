@@ -53,19 +53,16 @@ export default function Home() {
       <CardHeader>
         <CardTitle className="mb-3">Containers</CardTitle>
       </CardHeader>
-      <CardContent className="flex flex-col md:flex-row w-full justify-between gap-3">
-        <section className="flex flex-col w-full gap-3">
+      <CardContent className="flex flex-col  w-full">
+        <section className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
+          <WhMiniCard></WhMiniCard>
+          <WhMiniCard></WhMiniCard>
+          <WhMiniCard></WhMiniCard>
+          <WhMiniCard></WhMiniCard>
           <WhMiniCard></WhMiniCard>
           <WhMiniCard></WhMiniCard>
         </section>
-        <section className="flex flex-col w-full gap-3">
-          <WhMiniCard></WhMiniCard>
-          <WhMiniCard></WhMiniCard>
-        </section>
-        <section className="flex flex-col w-full gap-3">
-          <WhMiniCard></WhMiniCard>
-          <WhMiniCard></WhMiniCard>
-        </section>
+        
         
       </CardContent>
       <Button className="w-30 m-auto mt-0">+</Button>
@@ -80,19 +77,22 @@ export default function Home() {
       <CardHeader>
         <CardTitle className="mb-3 flex flex-row justify-between text-center"><span className="flex flex-col justify-center">Items</span> <Button>Filter</Button></CardTitle>
       </CardHeader>
-      <CardContent className="flex flex-col md:flex-row w-full justify-between gap-3">
-        <section className="flex flex-col w-full gap-3">
+      <CardContent className="flex flex-col w-full">
+        <section className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-3">
+          <ItemMiniCard></ItemMiniCard>
+          <ItemMiniCard></ItemMiniCard>
+          <ItemMiniCard></ItemMiniCard>
+          <ItemMiniCard></ItemMiniCard>
+          <ItemMiniCard></ItemMiniCard>
+          <ItemMiniCard></ItemMiniCard>
+          <ItemMiniCard></ItemMiniCard>
+          <ItemMiniCard></ItemMiniCard>
+          <ItemMiniCard></ItemMiniCard>
+          <ItemMiniCard></ItemMiniCard>
           <ItemMiniCard></ItemMiniCard>
           <ItemMiniCard></ItemMiniCard>
         </section>
-        <section className="flex flex-col w-full gap-3">
-          <ItemMiniCard></ItemMiniCard>
-          <ItemMiniCard></ItemMiniCard>
-        </section>
-        <section className="flex flex-col w-full gap-3">
-          <ItemMiniCard></ItemMiniCard>
-          <ItemMiniCard></ItemMiniCard>
-        </section>
+        
         
       </CardContent>
       <Button className="w-30 m-auto mt-3">+</Button>
