@@ -27,19 +27,109 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col items-center justify-start align-top h-lvh w-full">
+      <main className="flex flex-col items-center justify-start align-top h-lvh w-full min-w-xs">
         
         
         <CustomNavbar></CustomNavbar>
+        <HomeWhFilter></HomeWhFilter>
+        <HomeAllItems></HomeAllItems>
       </main>
       
       
     </div>
   );
 }
+ function HomeWhFilter() {
+  return (
+    <Card className="w-full max-w-11/12 mt-5 gap-0">
+      <CardHeader>
+        <CardTitle className="mb-3">Containers</CardTitle>
+      </CardHeader>
+      <CardContent className="flex flex-col md:flex-row w-full justify-between gap-3">
+        <section className="flex flex-col w-full gap-3">
+          <WhMiniCard></WhMiniCard>
+          <WhMiniCard></WhMiniCard>
+        </section>
+        <section className="flex flex-col w-full gap-3">
+          <WhMiniCard></WhMiniCard>
+          <WhMiniCard></WhMiniCard>
+        </section>
+        <section className="flex flex-col w-full gap-3">
+          <WhMiniCard></WhMiniCard>
+          <WhMiniCard></WhMiniCard>
+        </section>
+        
+      </CardContent>
+      <Button className="w-30 m-auto mt-0">+</Button>
+      
+    </Card>
+  )
+}
 
+ function HomeAllItems() {
+  return (
+    <Card className="w-full max-w-11/12 mt-5 gap-0">
+      <CardHeader>
+        <CardTitle className="mb-3 flex flex-row justify-between text-center"><span className="flex flex-col justify-center">Items</span> <Button>Filter</Button></CardTitle>
+      </CardHeader>
+      <CardContent className="flex flex-col md:flex-row w-full justify-between gap-3">
+        <section className="flex flex-col w-full gap-3">
+          <ItemMiniCard></ItemMiniCard>
+          <ItemMiniCard></ItemMiniCard>
+        </section>
+        <section className="flex flex-col w-full gap-3">
+          <ItemMiniCard></ItemMiniCard>
+          <ItemMiniCard></ItemMiniCard>
+        </section>
+        <section className="flex flex-col w-full gap-3">
+          <ItemMiniCard></ItemMiniCard>
+          <ItemMiniCard></ItemMiniCard>
+        </section>
+        
+      </CardContent>
+      <Button className="w-30 m-auto mt-0">+</Button>
+      
+    </Card>
+  )
+}
 
-
+ 
+ function WhMiniCard() {
+   return (
+     <article className="w-full min-h-30 ">
+      <Card className="w-full">
+        <CardHeader>
+          <CardTitle>Warehouse </CardTitle>
+          <CardDescription className="flex flex-row gap-4 justify-between"><span>nº 72610367</span><span>3 items stored</span></CardDescription>
+        </CardHeader>
+        
+        
+      </Card>
+      </article>
+   )
+ }
+ function ItemMiniCard() {
+   return (
+     <article className="w-full min-h-30 ">
+      <Card className="w-full">
+        <CardHeader>
+          <CardTitle>Item name </CardTitle>
+          <CardDescription className="flex flex-row gap-4 justify-between"><span>Ref: i7160ad6</span></CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="w-full h-48 bg-black flex items-center justify-center">
+            <img
+              src="https://github.com/jlopep09.png"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </CardContent>
+        
+      </Card>
+      </article>
+   )
+ }
+ 
 
  function CustomNavbar() {
   return (
