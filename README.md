@@ -12,7 +12,7 @@ Desarrollada con **Next.js**, **React**, **TypeScript** y **Tailwind CSS**.
 - 📊 Gestión de productos, almacenes, contenedores, stock...  
 - 💻 Interfaz moderna y responsive.  
 - ⚡ Construida con tecnologías modernas (Next.js, React, TypeScript).  
-- 🎨 Estilos rápidos y personalizables con Tailwind CSS.  
+- 🎨 Estilos rápidos y personalizables con Tailwind CSS y ShadcnUI.  
 - 🏗️ Arquitectura escalable y mantenible.  
 - 🌐 Despliegue en servidor VPS propio.  
 
