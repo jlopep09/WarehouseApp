@@ -1,31 +1,11 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { Button } from "@/components/ui/button";
-import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { IoCart } from "react-icons/io5";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { FaGithub, FaHeart } from "react-icons/fa";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu"
+import { SignedIn, SignInButton, UserButton,SignedOut } from "@clerk/nextjs";
 
 export default function Home() {
   return (
@@ -149,21 +129,13 @@ export default function Home() {
           <Avatar>
                 <AvatarImage src="" />
                 <AvatarFallback ><FaHeart className="h-full w-full m-1.5"/></AvatarFallback>
-              </Avatar>
-          <DropdownMenu>
-            <DropdownMenuTrigger >
-              <Avatar>
-            <AvatarImage src="https://github.com/jlopep09.png" />
-            <AvatarFallback>Account</AvatarFallback>
           </Avatar>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuLabel>jlopep09</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Log out</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
           <Avatar className="hidden">
             <AvatarImage src="" />
             <AvatarFallback ><IoCart className="h-full w-full m-1"/></AvatarFallback>
