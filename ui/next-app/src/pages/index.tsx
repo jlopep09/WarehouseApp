@@ -5,16 +5,28 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { IoCart } from "react-icons/io5";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { FaGithub, FaHeart } from "react-icons/fa";
-import { SignedIn, SignInButton, UserButton,SignedOut } from "@clerk/nextjs";
+import { SignedIn, SignInButton, UserButton,SignedOut, useUser } from "@clerk/nextjs";
+import { useEffect } from "react";
 
 export default function Home() {
+  const { isSignedIn, user } = useUser();
+  useEffect(() => {
+    if (isSignedIn) {
+      fetch("/api/register", { method: "POST", credentials: "include" })
+        .catch(err => console.error("register fetch error", err));
+    }
+  }, [isSignedIn]);
   return (
     <div className={styles.container}>
       <Head>
         <title>Warehouse App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      {!isSignedIn ? (
+        <SignInButton />
+      ) : (
+        
+      
       <main className="flex flex-col items-center justify-start align-top min-h-lvh w-full min-w-xs ">
         
         
@@ -22,6 +34,8 @@ export default function Home() {
         <HomeWhFilter></HomeWhFilter>
         <HomeAllItems></HomeAllItems>
       </main>
+      )}
+
       <CustomFooter></CustomFooter>
       
     </div>
